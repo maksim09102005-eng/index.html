@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сердце для Лисика</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+    body {
+      background: #f8e0e6;
+      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bgoverlay {
+      background: rgba(255, 192, 203, 0.7);
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      text-align: center;
+    }
+
+    .ico {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .ico:before,
+    .ico:after {
+      position: absolute;
+      top:0;
+      left:0;
+      font-size: 22em;
+      color: #fc6396;
+      content: "\f004";
+      font-family: FontAwesome;
+      z-index: 2;
+    }
+
+    .ico:after {
+      animation: pulse 2s infinite;
+      opacity: 0.5;
+    }
+
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 5;
+      font-size: 40px;
+      cursor: pointer;
+      color: #fff;
+      text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    }
+
+    .open .ico {
+      animation: open 3s forwards;
+    }
+
+    .open .title {
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .endtext {
+      opacity:0;
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .endtext h1 {
+      font-size: 36px;
+      line-height: 1.4em;
+      color: #a8032c; /* винный цвет */
+      text-shadow: 2px 4px 3px rgba(0,0,0,0.2);
+    }
+
+    .open .endtext {
+      opacity: 1;
+      animation: show 4s forwards;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+
+    @keyframes open {
+      from { transform: scale(1); }
+      to { transform: scale(15); }
+    }
+
+    @keyframes show {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bgoverlay">
+    <div class="container">
+      <span class="ico"></span>
+      <span class="title">Нажми на меня</span>
+      <div class="endtext">
+        <h1>Я тебя люблю, лисик.<br>Ты мое маленькое чудо,<br>которым я очень сильно дорожу.</h1>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.title').click(function(){
+        $('.container').addClass('open');
+      });
+    });
+  </script>
+</body>
+</html>
